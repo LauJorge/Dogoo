@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<title>Dogoo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
+
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* style the container */
+.container {
+  position: relative;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px 0 30px 0;
+} 
+
+/* style inputs and link buttons */
+input,
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 175px;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
+.custom-select {
+          position: relative;
+          font-family: Arial;
+          background-color: rgba(96, 114, 133, 0.418);
+          color: #ffffff;
+          padding: 8px 16px;
+          border: 1px solid transparent;
+          border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+          margin: 1.2%;
+        }
+  
+     .select-selected {
+          background-color: rgba(96, 114, 133, 0.418);
+        }
+        /*style the arrow inside the select element:*/
+        .select-selected:after {
+          position: absolute;
+          content: "";
+          top: 14px;
+          right: 10px;
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+          border-color: #fff transparent transparent transparent;
+        }
+        /*point the arrow upwards when the select box is open (active):*/
+        .select-selected.select-arrow-active:after {
+          border-color: transparent transparent #fff transparent;
+          top: 7px;
+        }
+        /*style the items (options), including the selected item:*/
+        .select-items div,.select-selected {
+          color: #ffffff;
+          padding: 8px 16px;
+          border: 1px solid transparent;
+          border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+          cursor: pointer;
+          user-select: none;
+        }
+        /*style items (options):*/
+        .select-items {
+          background-color: rgba(96, 114, 133, 0.418);;
+          top: 100%;
+          left: 0;
+          right: 0;
+          z-index: 99;
+        }
+        /*hide the items when the select box is closed:*/
+        .select-hide {
+          display: none;
+        }
+        .select-items div:hover, .same-as-selected {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+     
+
+</style>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+        <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-theme-d4" style="margin:10px"><i class="fa fa-home w3-margin-right"></i>Dogoo</a>
+        <a href="buscador1.html" class="w3-bar-item w3-button  w3-padding-large " title="Buscador"><input type="text" placeholder="Busca perritos" name="search" style="margin:3px"><i class="fa fa-search" style="margin:15px"></i></a>
+        <a href="login.html" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Mi cuenta" style="margin:10px"><i class="fa fa-sign-in"></i></a>
+
+    </div>
+</div>
+
+   
+   <!-- Navbar on small screens -->
+   <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+     <a href="#" class="w3-bar-item w3-button w3-padding-large">Lolita</a>
+   </div>
+</div>
+
+<!-- Page Container -->
+   <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+     <!-- The Grid -->
+     <div class="w3-row">
+       <!-- Left Column -->
+       <div class="w3-col m3">
+
+         <!-- Alert Box -->
+         <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+           <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+             <i class="fa fa-remove"></i>
+           </span>
+           <p><strong>Hey!</strong></p>
+           <img src="img/LOVE.gif" alt="Nature" class="w3-margin-bottom">
+   
+           <p>Perritos interesados en Lolita!</p>
+         </div>
+       
+       <!-- End Left Column -->
+       </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+                    <h6 class="w3-opacity"><b>CREA TU CUENTA</b></h6>           
+                </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <form name="formulario1"  method="post">
+        <div class="row">
+                <div class="vl">
+                  <span class="vl-innertext">o</span>
+                </div>
+                      
+                <div class="col">
+                        Nombre: <input title="Campo requerido" type="text" name="nombre" id="nombreUser" maxlength="20" autofocus required/> </p>			
+                        Correo: <input type="text" "Campo requerido" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" name="email" id="email" required/>
+                        Contraseña: <input title="Campo requerido" type="password" name="pass" id="pass" maxlength="9" required/> </p>			
+            
+                </div>
+          
+                <div class="col">
+                  Localidad: <br>
+                        <div class="custom-select">
+                                <select id="localidad" class="w3-bar-item w3-button" style="width: 90%" required/>
+                                        <option id='0'>Seleccione</option>
+                                    </select><br><br>
+                                    <select id="departamento" name="departamento" class="w3-bar-item w3-button" style="width: 90%" required/>
+                                            <option id='0'>Seleccione</option>
+                                    </select>
+                                 </div><br><br>
+                   <input id="btnPostUser" type="button" class="btn1" value="Crear Cuenta" >
+                </div>
+                
+              </div>
+            </form>
+          </div>
+          
+        
+          
+    <!-- End Middle Column -->
+    </div>
+       <!-- Right Column -->
+<div class="w3-col m2">
+    <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
+        <img src="img/perro que ríe 2.gif" style="width:70%"><br>
+      </div><br>
+  <div class="w3-card w3-round w3-white w3-center">
+    <div class="w3-container">
+      <p>Eventos:</p>
+      <img src="img/parque.jpeg" alt="Forest" style="width:100%;">
+      <p><strong>Lleva a tu chiquitín al parque</strong></p>
+      <p>Vie 15:00</p>
+      <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+    </div>
+  </div>
+  <br>
+  
+  <div class="w3-card w3-round w3-white w3-center">
+    <div class="w3-container">
+      <p>Solicitud de amistad</p>
+      <img src="img/img12.jpg" alt="Avatar" style="width:50%"><br>
+      <span>Titán</span>
+      <div class="w3-row w3-opacity">
+        <div class="w3-half">
+          <button class="w3-button w3-block w3-green w3-section" title="Aceptar"><i class="fa fa-check"></i></button>
+        </div>
+        <div class="w3-half">
+          <button class="w3-button w3-block w3-red w3-section" title="Rechazar"><i class="fa fa-remove"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  
+  <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
+    <img src="img/rosa.gif" style="width:70%"><br>
+
+  </div>
+  <br>
+ 
+  
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5>DOGOO</h5>
+</footer>
+
+<footer class="w3-container w3-theme-d5">
+  <p>Powered by Lau</p>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="registro.js"></script>
+<script src="./libs/services.js/provincias/ProvinciasService.js"></script>
+<script src="./libs/services.js/departamentos/DepartamentosService.js"></script>
+<script src="./libs/services.js/user/RegistroService.js"></script>
+</body>
+</html> 
